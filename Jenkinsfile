@@ -47,6 +47,9 @@ pipeline {
               stage("notification") {
                             steps {
                                  notifyEvents message: 'Pipeline <b> is sucessufuly termined</b>', token: 'dwfv75avrj7qydahq_5xpcmrjsbvngoa'
+                                 emailext body: 'Deployment successful. Congratulations!',
+                                                                  subject: 'Deployment Success',
+                                                                  to: 'ka_boukef@esi.dz',
 
                             }
                         }
