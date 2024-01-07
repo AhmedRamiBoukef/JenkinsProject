@@ -44,6 +44,21 @@ pipeline {
 
                          }
                      }
+              stage("notification") {
+                            steps {
+                                 notifyEvents message: 'Pipeline <b> is sucessufuly termined</b>', token: 'dwfv75avrj7qydahq_5xpcmrjsbvngoa'
+
+                            }
+                        }
+
 }
+        post {
+
+                failure {
+                    mail bcc: '', body: '''process Failed!!!!
+        Soory rami''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'ka_boukef@esi.dz'
+                }
+
+        }
 
 }
